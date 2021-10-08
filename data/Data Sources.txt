@@ -1,0 +1,10 @@
+Data in this project was primarily sourced from:
+
+## Combine Data:
+https://nflcombineresults.com/
+
+## NFL Draft Data:
+ESPN.com
+example link:
+http://www.espn.com/nfl/draft/history/_/year/history?year=2018&round=-1&team=-1&college=-1&x=26&y=17&position=-1&procoach=-1&highschoolstate=-1&award=-1&collegecoach=-1&highschool=-1
+
