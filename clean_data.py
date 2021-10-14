@@ -33,3 +33,53 @@ print(df_colleges.head())
 print(df_colleges.shape)
 
 
+def group_imputer(df, grouping_col, cols_to_impute):
+    """
+    Impute values in a dataframe based on averages WITHIN a given category
+    :param df:
+    :param grouping_col:
+    :param cols_to_impute:
+    :return:
+    """
+
+    entries_in_group_col = df[grouping_col].unique()
+
+    df_group_means = df.groupby(by=grouping_col)[cols_to_impute].median()
+
+    # Loop over input df and replace/impute values
+    for entry in entries_in_group_col:
+        for column in cols_to_impute:
+            fill_value = df_group_means.loc[entry, column]
+            # fill_value = 100.01
+            # df[df[grouping_col]==entry][column] = df[df[grouping_col]==entry][column].fillna(fill_value)
+            # df[df[grouping_col] == entry][column].fillna(fill_value, inplace=True)
+            mask = df[grouping_col] == entry
+            df.loc[mask, column] = df.loc[mask, column].fillna(fill_value)
+
+    return df
+
+
+# df = df_combine
+# grouping_col = 'pos'
+# cols_to_impute = ['height (in)', 'weight (lbs)', 'hand size (in)', 'arm length (in)',
+#                   '40 yard', 'bench press', 'vert leap (in)', 'broad jump (in)',
+#                   'shuttle', '3cone', '60yd shuttle']
+#
+# entries_in_group_col = df[grouping_col].unique()
+#
+# df_group_means = df.groupby(by=grouping_col)[cols_to_impute].median()
+#
+# # Loop over input df and replace/impute values
+# for entry in entries_in_group_col:
+#     for column in cols_to_impute:
+#         fill_value = df_group_means.loc[entry, column]
+#         # fill_value = 100.01
+#         # df[df[grouping_col]==entry][column] = df[df[grouping_col]==entry][column].fillna(fill_value)
+#         # df[df[grouping_col] == entry][column].fillna(fill_value, inplace=True)
+#         mask = df[grouping_col]==entry
+#         df.loc[mask, column] = df.loc[mask, column].fillna(fill_value)
+#
+#
+# df.to_clipboard()
+moo='boo'
+
