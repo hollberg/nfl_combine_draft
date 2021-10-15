@@ -1,3 +1,4 @@
 /venv/
 /External Libraries/
 *.xml
+/.ipynb_checkpoints
