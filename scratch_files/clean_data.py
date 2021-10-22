@@ -8,13 +8,13 @@ Clean up raw *.csv files
 # Imports
 import numpy as np
 import pandas as pd
-combine_file = r'data\nfl_combine_1987_2020.csv'
+combine_file = r'../data/nfl_combine_1987_2020.csv'
 
 df_raw_combine = pd.read_csv(combine_file)
 
 df_raw_combine.head()
 
-draft_file = r'data\espn_draft_history_2000_2021_cleaned.csv'
+draft_file = r'../data/espn_draft_history_2000_2021_cleaned.csv'
 df_raw_draft = pd.read_csv(draft_file)
 
 df_draft = df_raw_draft
