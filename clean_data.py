@@ -29,21 +29,19 @@ df_combine.columns = df_combine.columns.str.lower()
 df_combine.head()
 
 df_colleges = df_combine.merge(df_draft, how='inner', left_on='college', right_on='school')
-print(df_colleges.head())
-print(df_colleges.shape)
+#print(df_colleges.head())
+#print(df_colleges.shape)
 
 
 def group_imputer(df, grouping_col, cols_to_impute):
     """
     Impute values in a dataframe based on averages WITHIN a given category
-    :param df:
-    :param grouping_col:
-    :param cols_to_impute:
-    :return:
+    :param df: Pandas DataFrame
+    :param grouping_col: String, column name to group by
+    :param cols_to_impute: List, column names where NaNs will be imputed
+    :return: Pandas DataFrame
     """
-
     entries_in_group_col = df[grouping_col].unique()
-
     df_group_means = df.groupby(by=grouping_col)[cols_to_impute].median()
 
     # Loop over input df and replace/impute values
